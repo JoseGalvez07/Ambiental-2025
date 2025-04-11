@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Problemas en Ica y Soluciones</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #00695c;
+      --secondary-color: #004d40;
+      --accent-color: #ff7043;
+      --bg-color: #f2f2f2;
+      --text-color: #333;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: var(--secondary-color);
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      margin: 0 15px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background-color: var(--accent-color);
+    }
+
+    footer {
+      background-color: var(--secondary-color);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      background-color: var(--card-bg);
+      margin-bottom: 30px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: var(--secondary-color);
+      margin-top: 20px;
+    }
+
+    canvas {
+      max-width: 100%;
+      margin: 20px 0;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Problemas Sociales y Ambientales en Ica</h1>
+    <p>Datos reales y soluciones tecnológicas para el desarrollo sostenible</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="qsomos.html">Quiénes Somos</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="contacto.html">Contáctanos</a>
+    <a href="#contaminacion">Contaminación Ambiental</a>
+    <a href="#criminalidad">Criminalidad</a>
+    <a href="#conflictos">Conflictos Sociales</a>
+  </nav>
+
+  <main>
+ 
+    <!-- Contaminación -->
+    <section id="contaminacion">
+      <h2>Contaminación Ambiental</h2>
+      <p>La calidad del aire y del agua en Ica ha empeorado por actividades industriales y agrícolas.</p>
+      <canvas id="contaminacionChart"></canvas>
+    </section>
+
+    <!-- Criminalidad -->
+    <section id="criminalidad">
+      <h2>Criminalidad</h2>
+      <p>La inseguridad ha crecido en zonas urbanas y rurales de Ica.</p>
+      <canvas id="criminalidadChart"></canvas>
+    </section>
+
+    <!-- Conflictos -->
+    <section id="conflictos">
+      <h2>Conflictos Sociales</h2>
+      <p>Los conflictos por uso de recursos como el agua se intensifican en la región.</p>
+      <canvas id="conflictosChart"></canvas>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Informativo Ica </p>
+  </footer>
+
+  <script>
+    new Chart(document.getElementById('contaminacionChart'), {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'PM10 (µg/m³)',
+          data: [68, 74, 80, 85, 90],
+          backgroundColor: '#ff7043'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { title: { display: true, text: 'Contaminación del Aire en Ica (PM10)' } }
+      }
+    });
+
+    new Chart(document.getElementById('criminalidadChart'), {
+      type: 'line',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Casos Reportados',
+          data: [3200, 3400, 3900, 4200, 4600],
+          borderColor: '#42a5f5',
+          backgroundColor: 'rgba(66,165,245,0.2)',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { title: { display: true, text: 'Criminalidad en Ica (2019-2023)' } }
+      }
+    });
+
+    new Chart(document.getElementById('conflictosChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Conflictos por Agua', 'Territorio', 'Ambientales', 'Laborales'],
+        datasets: [{
+          label: 'Distribución de Conflictos',
+          data: [35, 25, 20, 20],
+          backgroundColor: ['#ef5350', '#ab47bc', '#29b6f6', '#66bb6a']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { title: { display: true, text: 'Tipos de Conflictos Sociales en Ica' } }
+      }
+    });
+  </script>
+</body>
+</html>
